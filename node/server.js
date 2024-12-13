@@ -6,7 +6,7 @@ const app = expr();
 const port = 8080
 let db = ''
 
-app.use(bodyParser.json()).use(bodyParser.text()).use(cors());
+app.use(bodyParser.json()).use(bodyParser.text());
 const MySQL = async () => {
     db = await mysql.createConnection({
     host: "localhost",
