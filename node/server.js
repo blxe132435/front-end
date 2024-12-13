@@ -7,7 +7,7 @@ const port = 8080
 app.use(bodyParser.json()).use(bodyParser.text()).use(cors());
 const MySQL = async () => {
   const db = await mysql.createConnection({
-    host: "localhost"
+    host: "localhost",
     user: "pxng_admin",
     password: "Admin132",
     database: "pxng_db"
