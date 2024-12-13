@@ -57,7 +57,9 @@ console.log(id);
   const newData = await db.query("SELECT * FROM users WHERE id = ?", [id]);
   res.json({
     status: 200,
-    message: "This is the update user route with id ",id,query
+    message: "updated successfully",
+    old: oldData[0],
+    new: newData[0]
   });
 });
 app.listen(port, async () => {
