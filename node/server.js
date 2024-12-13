@@ -43,7 +43,7 @@ app.get("/users/:id", async (req, res) => {
 app.post("/users", async (req, res) => {
   let userData = req.body;
   let result = await db.query("INSERT INTO users SET ?", userData);
-  let user = await db.query("SELECT * FROM users WHERE id = ?", [result.insertId]);
+  let user = await db.query("SELECT * FROM users WHERE id = ?", [result[0].insertId]);
   res.json({
     status: 200,
     message: "This is the create user route",
