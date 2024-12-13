@@ -30,7 +30,7 @@ app.get("/users/:id", async (req, res) => {
   console.log(id);
   const  query = req.query.q;
   console.log(query);
-  let result = await db.query("SELECT * FROM users WHERE id = ?", [id]);
+  // let result = await db.query("SELECT * FROM users WHERE id = ?", [id]);
   res.json({
     status: 200, 
     message: "This is the users route with id",id,query
@@ -48,15 +48,15 @@ console.log(query);
 const id = req.params.id;
 console.log(id);
   let dataUpdate = req.body;
-  const oldData = await db.query("SELECT * FROM users WHERE id = ?", [id]);
-  let result = await db.query("UPDATE users SET ? WHERE id = ?", [dataUpdate, id]);
-  const newData = await db.query("SELECT * FROM users WHERE id = ?", [id]);
+  // const oldData = await db.query("SELECT * FROM users WHERE id = ?", [id]);
+  // let result = await db.query("UPDATE users SET ? WHERE id = ?", [dataUpdate, id]);
+  // const newData = await db.query("SELECT * FROM users WHERE id = ?", [id]);
   res.json({
     status: 200,
     message: "This is the update user route with id ",id,query
   });
 });
 app.listen(port, async () => {
-  await MySQL();
+  // await MySQL();
   console.log(`Server running on port ${port}`);
 });
