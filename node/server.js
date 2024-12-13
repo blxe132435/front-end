@@ -56,7 +56,7 @@ console.log(id);
   let result = await db.query("UPDATE users SET ? WHERE id = ?", [dataUpdate, id]);
   const newData = await db.query("SELECT * FROM users WHERE id = ?", [id]);
   res.json({
-    status: 200,
+    status: result,
     message: "updated successfully",
     old: oldData[0],
     new: newData[0]
