@@ -1,37 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Night Sky</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+            font-family: Arial, sans-serif;
+        }
+        /* // ... existing code ... */
+
+        .christmas-emoji {
+            position: absolute;
+            font-size: 30px;
+            animation: float 5s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+    <style>
+      body {
+          margin: 0;
+          padding: 0;
+          height: 100vh;
+          overflow: hidden;
+          background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+          font-family: Arial, sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: none;
+      }
+      /* // ... existing styles ... */
+
+      .snowflake {
+          position: absolute;
+          color: #fff;
+          font-size: 1em;
+          user-select: none;
+          pointer-events: none;
+          animation: fall 5s linear;
+      }
+
+      @keyframes fall {
+          to {
+              transform: translateY(100vh) rotate(360deg);
+          }
+      }
+
+      .custom-cursor {
+          position: fixed;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.5);
+          pointer-events: none;
+          z-index: 9999;
+      }
+  </style>
 </head>
-
 <body>
-  <ol type="1" start="-99">
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-  </ol>
-  <ul>
-    <li>1
-      <ul>
-        <li>2</li>
-        <li>2</li>
-        <li>2</li>
-      </ul>
-    </li>
-    <li>2</li>
-      <ul>
-        <li>3</li>
-        <li>3</li>
-        <li>3</li>
-      </ul>
-  </ul>
-  <a href="https://pxng.online/users">button</a>
-  <script src="./js/index.js"></script>
-</body>
+    <div class="moon"></div>
+    <div class="santa">🎅</div>
+    <div class="message">
+        <h1>Merry Christmas!</h1>
+        <p>Enjoy the magical night sky</p>
+    </div>
+    <div class="custom-cursor"></div>
+    <script>
+        // ... existing createStar function and star creation ...
 
+        const christmasEmojis = ['🎄', '🎁', '⛄', '🦌', '🔔', '❄️', '🕯️', '🎅'];
+        
+        function createChristmasEmoji() {
+            const emoji = document.createElement('div');
+            emoji.classList.add('christmas-emoji');
+            emoji.textContent = christmasEmojis[Math.floor(Math.random() * christmasEmojis.length)];
+            emoji.style.left = Math.random() * window.innerWidth + 'px';
+            emoji.style.top = Math.random() * window.innerHeight + 'px';
+            emoji.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(emoji);
+        }
+
+        for (let i = 0; i < 15; i++) {
+            createChristmasEmoji();
+        }
+    </script>
+        <script>
+          // ... existing JavaScript ...
+  
+          const cursor = document.querySelector('.custom-cursor');
+          const snowflakes = ['❄', '❅', '❆'];
+  
+          document.addEventListener('mousemove', (e) => {
+              cursor.style.left = e.clientX + 'px';
+              cursor.style.top = e.clientY + 'px';
+  
+              if (Math.random() > 0.9) {
+                  createSnowflake(e.clientX, e.clientY);
+              }
+          });
+  
+          function createSnowflake(x, y) {
+              const snowflake = document.createElement('div');
+              snowflake.classList.add('snowflake');
+              snowflake.textContent = snowflakes[Math.floor(Math.random() * snowflakes.length)];
+              snowflake.style.left = x + 'px';
+              snowflake.style.top = y + 'px';
+              document.body.appendChild(snowflake);
+  
+              setTimeout(() => {
+                  snowflake.remove();
+              }, 5000);
+          }
+      </script>
+</body>
 </html>
