@@ -20,9 +20,11 @@ app.get("/", async (req, res) => {
   });
 });
 app.get("/users", async (req, res) => {
+  let result = await db.query("SELECT * FROM users") 
   res.json({
     status: 200,
-    message: "This is the users route without id"
+    message: "This is the users route",
+    data: result[0]
   });
 });
 app.get("/users/:id", async (req, res) => {
