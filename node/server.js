@@ -47,7 +47,7 @@ app.post("/users", async (req, res) => {
   res.json({
     status: 200,
     message: "This is the create user route",
-    data: user[0]
+    data: user
   });
 });
 app.put("/users/:id", async (req, res) => {
