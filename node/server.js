@@ -102,8 +102,8 @@ console.log(id);
 app.delete("/todolist/:id", async (req, res) => {
   const id = req.params.id;
   console.log(id);
-  let oldData = await db.query("SELECT * FROM users WHERE id = ?", [id]);
-  let results = await db.query("DELETE FROM users WHERE `id` = ?", [id]);
+  let oldData = await db.query("SELECT * FROM todoList WHERE id = ?", [id]);
+  let results = await db.query("DELETE FROM todoList WHERE `id` = ?", [id]);
   res.json({
     status: 200, 
     message: "Delete successfully",
