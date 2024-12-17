@@ -82,7 +82,7 @@ app.post("/todolist", async (req, res) => {
   res.json({
     status: 200,
     message: "This is the create user route",
-    data: user[0][0]
+    data: todo[0][0]
   });
 });
 app.put("/todolist/:id", async (req, res) => {
