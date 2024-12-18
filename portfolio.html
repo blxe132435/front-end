@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Game</title>
+    <style>
+    body {
+        background-color: #0c4428; /* สีเขียวเข้ม */
+        color: #ffffff;
+    }
+
+    #game-container {
+        max-width: 400px;
+        margin: auto;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    #card-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        width: 80px;
+        height: 120px;
+        background-color: #c41e3a; /* สีแดงคริสต์มาส */
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        cursor: pointer;
+        transition: transform 0.3s;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .card.flipped {
+        transform: rotateY(180deg);
+        background-color: #ffffff;
+        color: #c41e3a;
+    }
+
+    #start-game {
+        display: block;
+        margin: auto;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ffd700; /* สีทอง */
+        color: #0c4428;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    #start-game:hover {
+        background-color: #ffec8b;
+    }
+
+    h3 {
+        text-align: center;
+        color: #ffd700; /* สีทอง */
+    }
+</style>
+<style>
+
+    /* Snow effect */
+    .snowflake {
+        color: #fff;
+        font-size: 1em;
+        font-family: Arial, sans-serif;
+        text-shadow: 0 0 5px #000;
+        position: fixed;
+        top: -10%;
+        z-index: 9999;
+        user-select: none;
+        cursor: default;
+        animation-name: snowflakes-fall, snowflakes-shake;
+        animation-duration: 10s, 3s;
+        animation-timing-function: linear, ease-in-out;
+        animation-iteration-count: infinite, infinite;
+        animation-play-state: running, running;
+    }
+
+    @keyframes snowflakes-fall {
+        0% { top: -10%; }
+        100% { top: 100%; }
+    }
+
+    @keyframes snowflakes-shake {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(80px); }
+    }
+
+    /* Christmas lights */
+    .lights {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+    }
+
+    .light {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        animation: light-up 1s alternate infinite;
+    }
+
+    @keyframes light-up {
+        0% { opacity: 0.4; }
+        100% { opacity: 1; }
+    }
+    .section-title {
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 2em;
+            font-weight: bold;
+            text-shadow: 0 0 10px #fff;
+            transition: color 0.3s ease-in-out;
+        }
+        :hover {
+            color: #ffd700;
+        }
+    }
+</style>
+
+</head>
+<body>
+    <section id="projects" class="container">
+    <h2 class="section-title">
+        <a href=`https://pxng.online/`>กลับ</a><br />
+        โปรเจกต์คริสต์มาส</h2>
+    <div class="projects">
+        <div class="project">
+            <h3>เกมจับคู่การ์ดคริสต์มาส</h3>
+            <div id="game-container">
+                <div id="card-grid"></div>
+                <button id="start-game">เริ่มเกมคริสต์มาสใหม่</button>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="lights">
+    <!-- ไฟจะถูกเพิ่มด้วย JavaScript -->
+</div>
+<script>
+    // ... existing JavaScript ...
+
+    // Snow effect
+    function createSnowflakes() {
+        const snowContainer = document.createElement('div');
+        snowContainer.className = 'snowflakes';
+        for (let i = 0; i < 50; i++) {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.innerHTML = '❅';
+            snowflake.style.left = Math.random() * 100 + '%';
+            snowflake.style.animationDelay = Math.random() * 10 + 's';
+            snowContainer.appendChild(snowflake);
+        }
+        document.body.appendChild(snowContainer);
+    }
+
+    // Christmas lights
+    function createChristmasLights() {
+        const lightsContainer = document.querySelector('.lights');
+        const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
+        for (let i = 0; i < 50; i++) {
+            const light = document.createElement('div');
+            light.className = 'light';
+            light.style.left = Math.random() * 100 + '%';
+            light.style.top = Math.random() * 100 + '%';
+            light.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            light.style.animationDelay = Math.random() * 1 + 's';
+            lightsContainer.appendChild(light);
+        }
+    }
+
+    // Call the functions to create effects
+    createSnowflakes();
+    createChristmasLights();
+
+    // ... rest of the existing JavaScript ...
+</script>
+
+<script>
+    const cardGrid = document.getElementById('card-grid');
+    const startButton = document.getElementById('start-game');
+    const cardSymbols = ['🎅', '🎄', '🎁', '⛄', '🦌', '🔔', '❄️', '🕯️'];
+    let cards = [];
+    let flippedCards = [];
+    let matchedPairs = 0;
+
+
+
+    function createCard(symbol) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        card.dataset.symbol = symbol;
+        card.addEventListener('click', flipCard);
+        return card;
+    }
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    function startGame() {
+        cardGrid.innerHTML = '';
+        cards = [];
+        flippedCards = [];
+        matchedPairs = 0;
+
+        const gameSymbols = [...cardSymbols, ...cardSymbols];
+        shuffleArray(gameSymbols);
+
+        gameSymbols.forEach(symbol => {
+            const card = createCard(symbol);
+            cards.push(card);
+            cardGrid.appendChild(card);
+        });
+    }
+
+    function flipCard() {
+        if (flippedCards.length < 2 && !this.classList.contains('flipped')) {
+            this.classList.add('flipped');
+            this.textContent = this.dataset.symbol;
+            flippedCards.push(this);
+
+            if (flippedCards.length === 2) {
+                setTimeout(checkMatch, 1000);
+            }
+        }
+    }
+
+    function checkMatch() {
+        const [card1, card2] = flippedCards;
+        if (card1.dataset.symbol == card2.dataset.symbol) {
+            matchedPairs++;
+            if (matchedPairs == cardSymbols.length) {
+                alert('ยินดีด้วย! คุณชนะแล้ว!');
+            }
+        } else {
+            card1.classList.remove('flipped');
+            card2.classList.remove('flipped');
+            card1.textContent = '';
+            card2.textContent = '';
+        }
+        flippedCards = [];
+    }
+
+    startButton.addEventListener('click', startGame);
+    startGame();
+
+
+
+    function checkMatch() {
+        const [card1, card2] = flippedCards;
+        if (card1.dataset.symbol === card2.dataset.symbol) {
+            matchedPairs++;
+            if (matchedPairs === cardSymbols.length) {
+                alert('Merry Christmas! คุณชนะแล้ว! 🎉🎄');
+            }
+        } else {
+            card1.classList.remove('flipped');
+            card2.classList.remove('flipped');
+            card1.textContent = '';
+            card2.textContent = '';
+        }
+        flippedCards = [];
+    }
+
+</script>
+
+</body>
+</html>
