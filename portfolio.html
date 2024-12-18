@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -288,3 +289,219 @@
 
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio | พอร์ตโฟลิโอของฉัน</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 2rem;
+        }
+
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+
+        header h1 {
+            margin-bottom: 1rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav li {
+            padding: 0 20px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .hero {
+            background: url('https://source.unsplash.com/random/1600x900') no-repeat center center/cover;
+            height: 400px;
+            color: #3b3b3b;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #e8491d;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .btn:hover {
+            background: #ff6a3c;
+        }
+
+        section {
+            padding: 2rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .skills, .projects {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .skill, .project {
+            background: #ffffff;
+            padding: 1rem;
+            margin: 1rem;
+            width: calc(33.333% - 2rem);
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .contact form input, .contact form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+        }
+
+        footer {
+            background: #35424a;
+            color: #ffffff;
+            text-align: center;
+            padding: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <h1>My Portfolio</h1>
+                <ul>
+                    <li><a href="#about">เกี่ยวกับ</a></li>
+                    <li><a href="#skills">ทักษะ</a></li>
+                    <li><a href="#projects">โปรเจกต์</a></li>
+                    <li><a href="#contact">ติดต่อ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>ยินดีต้อนรับสู่พอร์ตโฟลิโอของฉัน</h2>
+        <p>นักพัฒนาซอฟต์แวร์ที่มีความกระตือรือร้น</p>
+        <a href="#contact" class="btn">ติดต่อฉัน</a>
+    </section>
+
+    <section id="about" class="container">
+        <h2 class="section-title">เกี่ยวกับฉัน</h2>
+        <p>สวัสดีครับ! ฉันเป็นนักพัฒนาซอฟต์แวร์ที่มีความหลงใหลในการสร้างโซลูชันที่สร้างสรรค์และมีประสิทธิภาพ ฉันมีประสบการณ์ในการพัฒนาเว็บและแอปพลิเคชันมือถือ</p>
+    </section>
+
+    <section id="skills" class="container">
+        <h2 class="section-title">ทักษะ</h2>
+        <div class="skills">
+            <div class="skill">HTML/CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">Python</div>
+            <div class="skill">SQL</div>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2 class="section-title">โปรเจกต์</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>โปรเจกต์ 1</h3>
+                <p>คำอธิบายโปรเจกต์ 1</p>
+            </div>
+            <div class="project">
+                <h3>โปรเจกต์ 2</h3>
+                <p>คำอธิบายโปรเจกต์ 2</p>
+            </div>
+            <div class="project">
+                <h3>โปรเจกต์ 3</h3>
+                <p>คำอธิบายโปรเจกต์ 3</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2 class="section-title">ติดต่อ</h2>
+        <form>
+            <input type="text" placeholder="ชื่อ" required>
+            <input type="email" placeholder="อีเมล" required>
+            <textarea placeholder="ข้อความ" required></textarea>
+            <button type="submit" class="btn">ส่ง</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 My Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+>>>>>>> f65ef12e41a51efff1f1f98b27dbf619bf94398d
