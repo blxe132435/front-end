@@ -67,8 +67,19 @@ console.log(id);
   });
 });
 
+// Todo-List
+
 app.get("/todolist", async (req, res) => {
   let result = await db.query("SELECT * FROM todoList") 
+  res.json({
+    status: 200,
+    message: "This is the users route",
+    data: result[0]
+  });
+});
+app.get("/todolist/:id", async (req, res) => {
+  const id = req.params.id;
+  let result = await db.query("SELECT * FROM todoList WHERE id = ?", [id]) 
   res.json({
     status: 200,
     message: "This is the users route",
